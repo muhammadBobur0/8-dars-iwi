@@ -18,7 +18,6 @@ export const Login = () => {
 			})
 			.then(function (response) {
 				setToken(response.data);
-				localStorage.setItem('token', JSON.stringify(token.data));
 				if (token) {
 					naviget('/');
 				}
