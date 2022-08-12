@@ -5,7 +5,6 @@ import { MoviesPOP } from './MoviesPOP';
 import UpcomingMovies from '../pages/UpcomingMovies';
 import TV from '../pages/Tv';
 import { Single } from './single';
-import { TvIteam } from './TvIteam';
 
 export const Popalation = () => {
 	return (
