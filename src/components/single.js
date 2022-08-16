@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -18,6 +18,8 @@ export const Single = () => {
 			});
 	}, [id]);
 
+	const back = useNavigate();
+
 	return (
 		<div className='box'>
 			<img
@@ -26,6 +28,15 @@ export const Single = () => {
 				alt=''
 			/>
 			<div className='singlebox'>
+				<div>
+					<button
+						className='back'
+						onClick={() => {
+							back(-1);
+						}}>
+						back
+					</button>
+				</div>
 				<div className='dflex'>
 					<div>
 						<img
@@ -40,7 +51,7 @@ export const Single = () => {
 						<p>budget: {movie.budget}</p>
 						<p>release - date: {movie.release_date}</p>
 						<p>runtime: {movie.runtime} Min</p>
-						<div className='dflex'>
+						<div className='flex'>
 							<span>genres:</span>
 							{movie.genres?.map((el) => {
 								return <span className='gener'> {el.name}</span>;

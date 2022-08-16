@@ -4,7 +4,7 @@ import { useState } from 'react';
 export const AuthToken = createContext();
 
 export const TokenProvider = ({ children }) => {
-	const local = localStorage.getItem('token');
+	const local = JSON.parse(localStorage.getItem('token'));
 	const [token, setToken] = useState(local);
 
 	if (token !== null) {

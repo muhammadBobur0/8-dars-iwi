@@ -1,10 +1,15 @@
 import { Pagination } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import useDebounce from '../hook/useDebounse';
 
 const { default: axios } = require('axios');
 const { useState, useEffect } = require('react');
 const { Iteam } = require('../components/Iteam');
 
-const TopMovies = () => {
+const Search = () => {
+	const { query } = useParams();
+	const debouncedValue = useDebounce(query, 750);
+
 	const [top, setTop] = useState([]);
 	const [page, setPage] = useState();
 
@@ -13,7 +18,7 @@ const TopMovies = () => {
 	useEffect(() => {
 		axios
 			.get(
-				`https://api.themoviedb.org/3/movie/top_rated?api_key=db6051e2af08e90ef09bfced7f5a8703`,
+				`https://api.themoviedb.org/3/search/movie?api_key=db6051e2af08e90ef09bfced7f5a8703&query=${debouncedValue}`,
 				{
 					params: {
 						page: activepage,
@@ -27,7 +32,7 @@ const TopMovies = () => {
 			.catch(function (error) {
 				console.log(error);
 			});
-	}, [activepage]);
+	}, [activepage, debouncedValue]);
 
 	return (
 		<div>
@@ -53,4 +58,4 @@ const TopMovies = () => {
 	);
 };
 
-export default TopMovies;
+export default Search;

@@ -6,6 +6,17 @@
   list-style: none;
 }
 
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+
+
+
 .movie-poster{
   width: 500px;
   height: 400px;
@@ -22,7 +33,7 @@
 
 .gener{
   margin-right: 30px;
-  padding: 0px 30px ;
+  padding: 10px 30px ;
   background-color: #fff;
   color: #000;
   border-radius: 20px;
@@ -161,4 +172,49 @@ p{
   padding: 8px 15px;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+}
+.page{
+  background-color: #f5deb3;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  margin-left: 50px;
+  font-size: 18px;
+}
+
+.back::before{
+  display: block;
+  margin-right: 20px;
+  width: 20px;
+  height: 20px;
+  background-image: url(./assets/images/Shape.svg);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}
+
+
+.error {
+  text-align: center;
+  color: #ff0000;
+}
+
+.back{
+  cursor: pointer;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.flex span {
+  margin-right: 10px;
 }
